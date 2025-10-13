@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinyl Vending Machine</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="machine-header">
+            <div class="header-content">
+                <div class="header-text">
+                    <h1 class="logo">🎵 VINILOS PLUS</h1>
+                    <p class="tagline">Tu Música Favorita en Vinilo</p>
+                </div>
+                <button id="themeToggle" class="theme-toggle" title="Alternar tema">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Product Display -->
+            <section class="products-section">
+                <h2 class="section-title">Selecciona tu Vinilo</h2>
+                <div id="productsGrid" class="products-grid">
+                    <!-- Products will be loaded here by JS -->
+                </div>
+            </section>
+
+            <!-- Payment Panel -->
+            <aside class="payment-panel">
+                <div class="display-screen">
+                    <div class="screen-content">
+                        <p class="screen-label">Producto Seleccionado:</p>
+                        <p id="selectedProduct" class="screen-value">Ninguno</p>
+                        <p class="screen-label">Precio:</p>
+                        <p id="productPrice" class="screen-value price">$0</p>
+                        <p class="screen-label">Saldo Ingresado:</p>
+                        <p id="insertedMoney" class="screen-value balance">$0</p>
+                        <p class="screen-label">Cambio:</p>
+                        <p id="change" class="screen-value change">$0</p>
+                    </div>
+                    <div id="statusMessage" class="status-message"></div>
+                </div>
+
+                <div class="payment-controls">
+                    <h3 class="controls-title">Insertar Dinero</h3>
+                    <div class="money-buttons">
+                        <button class="money-btn" data-value="1">$1</button>
+                        <button class="money-btn" data-value="5">$5</button>
+                        <button class="money-btn" data-value="10">$10</button>
+                        <button class="money-btn" data-value="20">$20</button>
+                        <button class="money-btn" data-value="50">$50</button>
+                    </div>
+
+                    <div class="action-buttons">
+                        <button id="purchaseBtn" class="action-btn purchase-btn" disabled>
+                            Comprar
+                        </button>
+                        <button id="cancelBtn" class="action-btn cancel-btn">
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="delivery-slot">
+                    <div class="slot-label">ENTREGA</div>
+                    <div id="deliveryArea" class="slot-area">
+                        <p class="slot-text">Tu vinilo aparecerá aquí</p>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <!-- Footer -->
+        <footer class="machine-footer">
+            <div class="footer-content">
+                <p>© 2025 supermaquinas SA</p>
+                <button id="stockBtn" class="stock-btn" title="Gestionar Stock">
+                    📦 Stock
+                </button>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Delivery Modal -->
+    <div id="deliveryModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>¡Compra Exitosa! 🎉</h2>
+            </div>
+            <div class="modal-body">
+                <div class="vinyl-animation">
+                    <div class="vinyl-disc">
+                        <div class="vinyl-center"></div>
+                        <div class="vinyl-groove"></div>
+                    </div>
+                </div>
+                <h3 id="deliveredProduct" class="delivered-title">Producto</h3>
+                <p class="delivered-info">Tu vinilo ha sido entregado</p>
+                <p id="changeInfo" class="change-info"></p>
+            </div>
+            <div class="modal-footer">
+                <button id="closeModal" class="modal-btn">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stock Management Modal -->
+    <div id="stockModal" class="modal">
+        <div class="modal-content stock-modal-content">
+            <div class="modal-header">
+                <h2>📦 Gestión de Stock</h2>
+                <button id="closeStockModal" class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="stock-info">
+                    <p class="stock-instructions">Ajusta el stock de cada vinilo. Los cambios se guardarán automáticamente.</p>
+                </div>
+                <div id="stockGrid" class="stock-grid">
+                    <!-- Stock items will be loaded here by JS -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="resetStockBtn" class="modal-btn reset-btn">Restablecer Todo el Stock</button>
+                <button id="saveStockBtn" class="modal-btn">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/theme.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/payment.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/stock.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
