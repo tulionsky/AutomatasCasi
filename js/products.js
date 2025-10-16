@@ -66,8 +66,8 @@ const products = [
     },
     {
         id: 'C3',
-        name: 'The Wall',
-        artist: 'Pink Floyd',
+        name: 'Weight of the World',
+        artist: 'Nier: Automata',
         price: 35,
         stock: 3,
         icon: 'image/The Wall.png'
@@ -82,8 +82,8 @@ const products = [
     },
     {
         id: 'D2',
-        name: 'Born to Run',
-        artist: 'Bruce Springsteen',
+        name: 'Tu Ultima Cancion',
+        artist: 'Kirby Temerario',
         price: 25,
         stock: 6,
         icon: 'image/Born to Run.png'
