@@ -4,6 +4,7 @@ class PaymentManager {
     constructor() {
         this.insertedAmount = 0;
         this.selectedProduct = null;
+        this.MAX_AMOUNT = 50; // Límite máximo de dinero acumulado
     }
 
     /**
@@ -45,13 +46,30 @@ class PaymentManager {
             };
         }
 
+        // Verificar si se excedería el límite máximo
+        if (this.insertedAmount + amount > this.MAX_AMOUNT) {
+            return {
+                success: false,
+                message: `No se puede exceder el límite de $${this.MAX_AMOUNT}`,
+                limitReached: true
+            };
+        }
+
         this.insertedAmount += amount;
         
         return {
             success: true,
             message: `$${amount} insertado`,
-            total: this.insertedAmount
+            total: this.insertedAmount,
+            limitReached: this.insertedAmount >= this.MAX_AMOUNT
         };
+    }
+
+    /**
+     * Check if limit is reached
+     */
+    isLimitReached() {
+        return this.insertedAmount >= this.MAX_AMOUNT;
     }
 
     /**
